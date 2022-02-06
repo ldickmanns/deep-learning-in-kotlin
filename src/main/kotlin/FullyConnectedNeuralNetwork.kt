@@ -6,6 +6,7 @@ import org.jetbrains.kotlinx.dl.api.core.layer.reshaping.Flatten
 import org.jetbrains.kotlinx.dl.api.core.loss.Losses
 import org.jetbrains.kotlinx.dl.api.core.metric.Metrics
 import org.jetbrains.kotlinx.dl.api.core.optimizer.Adam
+import org.jetbrains.kotlinx.dl.api.core.summary.logSummary
 import org.jetbrains.kotlinx.dl.dataset.mnist
 
 fun main() {
@@ -26,7 +27,7 @@ fun main() {
             metric = Metrics.ACCURACY,
         )
 
-        it.summary()
+        it.logSummary()
 
         it.fit(train, epochs = 50, batchSize = 1024)
 
